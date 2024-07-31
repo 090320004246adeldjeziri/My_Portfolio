@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/nav_items.dart';
+import 'package:portfolio/styles/style.dart';
 import 'package:portfolio/widgets/logo_web.dart';
 
 class HeaderDesktop extends StatelessWidget {
@@ -15,10 +16,7 @@ class HeaderDesktop extends StatelessWidget {
               width: double.maxFinite,
               
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                      colors: [Colors.transparent, CustomColor.bgLight1]),
-                  borderRadius: BorderRadius.circular(100)),
+              decoration: KheaderDecoration,
               child: Row(children: [
                 SiteLogo(onTap: (() {
                   

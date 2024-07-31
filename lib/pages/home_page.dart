@@ -1,5 +1,12 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/nav_items.dart';
+import 'package:portfolio/styles/style.dart';
+import 'package:portfolio/widgets/drawer_mobile.dart';
+import 'package:portfolio/widgets/header_desktop.dart';
+import 'package:portfolio/widgets/header_mobile.dart';
 import 'package:portfolio/widgets/logo_web.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,47 +17,44 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: CustomColor.scaffoldBg,
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          // Uncomment the line below if you need to include HeaderDesktop widget
-          // const HeaderDesktop(),
-          Container(
-            height: 50.0,
-            margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
-            decoration: ,
-            child: Row(
-              children: [
-                SiteLogo(
-                  onTap: () {},
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.menu, // Corrected the icon type
-                    color: Colors.yellow,
-                  ),
-                ),
-              ],
+    return LayoutBuilder(
+    
+      builder: (context,constraintes){ return Scaffold(
+        backgroundColor: CustomColor.scaffoldBg,
+        key: scaffoldKey,
+        endDrawer: const DrawerMob(),
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            // Uncomment the line below if you need to include HeaderDesktop widget
+            headerMobile(
+              onMenuTap: () {
+                setState(() {
+                  scaffoldKey.currentState?.openEndDrawer();
+                });
+              },
+              onLogoTap: () {
+                scaffoldKey.currentState?.closeEndDrawer();
+              },
             ),
-          ),
-          Container(
-            height: 500,
-            width: double.maxFinite,
-            color: Colors.blueGrey,
-          ),
-          Container(
-            height: 500,
-            width: double.maxFinite,
-            color: Colors.blueGrey,
-          ),
-        ],
-      ),
+    
+            Container(
+              height: 500,
+              width: double.maxFinite,
+              color: Colors.blueGrey,
+            ),
+            Container(
+              height: 500,
+              width: double.maxFinite,
+              color: Colors.blueGrey,
+            ),
+          ],
+        ),
+      );}
     );
   }
 }
