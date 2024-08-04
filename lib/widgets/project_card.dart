@@ -6,16 +6,13 @@ import 'dart:js' as js;
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
     Key? key,
-    required this.screenWidth,
     required this.project,
   }) : super(key: key);
   final ProjectUtils project;
-  final double screenWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenWidth,
       color: CustomColor.scaffoldBg,
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       child: Column(children: [
@@ -76,7 +73,7 @@ class ProjectCardWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(12, 15, 12, 12),
+                padding: const EdgeInsets.fromLTRB(12, 15, 12, 12),
                 child: Text(
                   project.title,
                   style: const TextStyle(

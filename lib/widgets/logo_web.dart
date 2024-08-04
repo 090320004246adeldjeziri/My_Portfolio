@@ -12,7 +12,7 @@ class SiteLogo extends StatelessWidget {
       
        onTap: onTap ,
       child: const Text(
-        "NOVATECH",
+        "AD",
         style: TextStyle(
             fontSize: 22,
             color: CustomColor.yellowSecondary,

@@ -3,11 +3,15 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/nav_items.dart';
 
 class SkillDesktop extends StatelessWidget {
-  const SkillDesktop({super.key});
+  const SkillDesktop({super.key, required this.onNavItemTap});
+   final Function(int) onNavItemTap;
+
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       decoration: const BoxDecoration(
           color: CustomColor.bgLight1,
           borderRadius: BorderRadius.only(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/blog_page.dart';
 import 'package:portfolio/pages/home_page.dart';
 
 void main() {
@@ -15,6 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home:  HomePage(),
+      // routes: {
+      //           'blog': (context) => BlogPage(),
+
+      // }
     );
   }
 }

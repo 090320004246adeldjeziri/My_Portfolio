@@ -7,7 +7,8 @@ import 'package:portfolio/styles/style.dart';
 import 'package:portfolio/widgets/logo_web.dart';
 
 class HeaderDesktop extends StatelessWidget {
-  const HeaderDesktop({super.key});
+  const HeaderDesktop({super.key, required this.onNavItemMenutap});
+final Function(int) onNavItemMenutap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class HeaderDesktop extends StatelessWidget {
               height: 60,
               width: double.maxFinite,
               
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: KheaderDecoration,
               child: Row(children: [
                 SiteLogo(onTap: (() {
@@ -23,13 +24,20 @@ class HeaderDesktop extends StatelessWidget {
                 }),),
               
                 const Spacer(),
-                for (String i in navTitles)
+                for (int i =0;i<navTitles.length;i++)
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          onNavItemMenutap(i);
+                          // if(i==3){
+                          //   //go to blog page
+                            
+                          //   Navigator.pushNamed(context, 'blog');
+                          // }
+                        },
                         child: Text(
-                          i,
+                        navTitles[i],
                           style: const TextStyle(
                             color: CustomColor.whitePrimary,
                             fontSize: 16,
